@@ -2,11 +2,12 @@
 
 /**
  *
- * Timer for tea or mate time! Displays in system notifier
+ * Timer for tea or mate time! or anything else. 
+ * Displays system notification bubble
  * Author: Andrrr
- * Usage: $ node timer.js [args]
- * Arguments: [time in minutes] [message when timer finished] 
- * Example: $node timer.js 0.5 "Finished after 30 seconds!"
+ * 
+ * Usage: $ node timer.js [time in minutes] [message when timer finished] 
+ * Example: $ node timer.js 0.5 "Finished after 30 seconds!"
  * TODO: Use custom icons
  * 
  */
@@ -21,7 +22,7 @@ var time 	= process.argv[2] || 5;
 var time_message = '';
 
 // default: 'Se terminó el tiempo.'
-var message = process.argv[3] || 'Se terminó el tiempo.';
+var message = process.argv[3] || 'Time\'s up!';
 
 // default: 'minutos'
 var unit	= 'minutos';
@@ -37,7 +38,7 @@ if ( time < 1 ) {
 
 // Mensaje anunciando que comenzó el conteo
 notifier.notify({
-	title: 'Contando... ', 
+	title: 'Counting... ', 
 	message: '(' + time_message + ' ' + unit + ')',
 	icon: path.join(__dirname, 'img/pava-calentando.png'),
 	wait: false
@@ -46,7 +47,7 @@ notifier.notify({
 // Mensaje anunciando que terminó el conteo
 let timer = setTimeout(function(){
 	notifier.notify({
-		title: '¡Listo!',
+		title: 'Done!',
 		message: message,
 		icon: path.join(__dirname, 'img/pava-hirviendo.png'),
 		sound: true,

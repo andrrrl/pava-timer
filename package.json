@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/andrrrl/pava-timer/issues"
   },
-  "homepage": "https://github.com/andrrrl/pava-timer#readme"
+  "homepage": "https://github.com/andrrrl/pava-timer#readme",
+  "dependencies": {
+    "node-notifier": "^4.6.0"
+  }
 }
