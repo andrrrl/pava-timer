@@ -1,8 +1,9 @@
 # Node.js timer with system notification #
 
 ## Defaults ##
-timeout: 5 (minutes, can be a float: 0.5 = 30 seconds)
-message: "Time's up!"
+* timeout: 5 (minutes, can be a float: 0.5 = 30 seconds)
+
+* message: "Time's up!"
 
 Requirements:
 
