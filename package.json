@@ -1,0 +1,19 @@
+{
+  "name": "pava-timer",
+  "version": "1.0.0",
+  "description": "Timer for boiling water in a kettle (?)",
+  "main": "pava.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrrrl/pava-timer.git"
+  },
+  "author": "Andrrr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrrrl/pava-timer/issues"
+  },
+  "homepage": "https://github.com/andrrrl/pava-timer#readme"
+}
