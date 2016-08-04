@@ -6,9 +6,8 @@
  * Displays system notification bubble
  * Author: Andrrr
  * 
- * Usage: $ node timer.js [time in minutes] [message when timer finished] 
- * Example: $ node timer.js 0.5 "Finished after 30 seconds!"
- * 
+ * Usage: $ node timer.js [time in minutes] [message on timer finish] 
+ * Example: $ node timer.js 0.3 "Finished after 30 seconds!"
  * 
  */
 
