@@ -1,7 +1,7 @@
 # Node.js timer with system notification #
 
 ### Defaults: ###
-* timeout: 5 (minutes, can be a float: 0.5 = 30 seconds)
+* timeout: 5 (minutes, can be a float: 0.3 = 30 seconds)
 
 * message: "Time's up!"
 
@@ -9,17 +9,17 @@
 
 ```
 // Global is optional, of course
-$ npm install -g node-notifier
+$ npm install node-notifier -g
 ```
 
 ### Usage: ###
 
 ```
- $ node timer.js [time in minutes] [message when timer finished] 
+ $ node timer.js [time in minutes] [message on timer finish] 
 ```
 
 ### Example: ###
 
 ```
-$ node timer.js 0.5 "Finished after 30 seconds!"
+$ node timer.js 0.3 "Finished after 30 seconds!"
 ```

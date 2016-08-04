@@ -14,25 +14,23 @@
 
 'use strict';
 
-let notifier = require('node-notifier');
-let path = require('path');
-let colors = require('colors');
+let
+    notifier = require('node-notifier'),
+    path = require('path'),
+    colors = require('colors');
 
-const icon_start = 'img/pava-calentando.png';
-const icon_end 	 = 'img/pava-hirviendo.png';
+const
+    icon_start = 'img/pava-calentando.png',
+    icon_end = 'img/pava-hirviendo.png';
 
-// default: 'minutes'
-var unit = 'minutes';
-
-// default: 300000 (5 minutos)
-var time = process.argv[2] || 5;
-var time_message = '';
-
-// default: 'Se terminó el tiempo.'
-var message = process.argv[3] || 'Time\'s up!';
+var 
+	time = process.argv[2] || 5,
+	message = process.argv[3] || 'Time\'s up!',
+	unit = 'minutes',
+	time_message = '';
 
 if (time < 1) {
-    time_message = parseInt(time * 60);
+    time_message = parseInt(time * 100);
     time = parseInt(time * 100000);
     unit = 'seconds';
 } else {
@@ -50,11 +48,11 @@ var start_timer = {
 
 // Define notification announcing that the counter ended
 var end_timer = {
-	title: 'Done!',
-	message: message,
-	icon: path.join(__dirname, icon_end),
-	sound: true,
-	wait: false
+    title: 'Done!',
+    message: message,
+    icon: path.join(__dirname, icon_end),
+    sound: true,
+    wait: false
 }
 
 // Show bubble notification (start)
@@ -73,9 +71,9 @@ let timer = setTimeout(function() {
     notifier.notify(end_timer);
 
     // Show console notification (end)
-	console.log('+-------------------------+');
+    console.log('+-------------------------+');
     console.log(end_timer.title.green.bold);
     console.log(end_timer.message.green);
-	console.log('+-------------------------+');
+    console.log('+-------------------------+');
 
 }, time);
