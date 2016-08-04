@@ -23,7 +23,7 @@ const
     icon_start = 'img/pava-calentando.png',
     icon_end = 'img/pava-hirviendo.png';
 
-var 
+var
 	time = process.argv[2] || 5,
 	message = process.argv[3] || 'Time\'s up!',
 	unit = 'minutes',
