@@ -32,7 +32,7 @@ var time_message = '';
 var message = process.argv[3] || 'Time\'s up!';
 
 if (time < 1) {
-    time_message = parseInt(time * 100);
+    time_message = parseInt(time * 60);
     time = parseInt(time * 100000);
     unit = 'seconds';
 } else {
