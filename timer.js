@@ -8,49 +8,74 @@
  * 
  * Usage: $ node timer.js [time in minutes] [message when timer finished] 
  * Example: $ node timer.js 0.5 "Finished after 30 seconds!"
- * TODO: Use custom icons
+ * 
  * 
  */
 
 'use strict';
 
 let notifier = require('node-notifier');
-let path	 = require('path');
+let path = require('path');
+let colors = require('colors');
+
+const icon_start = 'img/pava-calentando.png';
+const icon_end 	 = 'img/pava-hirviendo.png';
+
+// default: 'minutes'
+var unit = 'minutes';
 
 // default: 300000 (5 minutos)
-var time 	= process.argv[2] || 5;
+var time = process.argv[2] || 5;
 var time_message = '';
 
 // default: 'Se terminó el tiempo.'
 var message = process.argv[3] || 'Time\'s up!';
 
-// default: 'minutos'
-var unit	= 'minutos';
-
-if ( time < 1 ) {
-	time_message = parseInt( time * 100 );
-	time = parseInt( time * 100000 );
-	unit = 'segundos';
+if (time < 1) {
+    time_message = parseInt(time * 100);
+    time = parseInt(time * 100000);
+    unit = 'seconds';
 } else {
-	time_message = parseInt( time );
-	time = parseInt( time ) * 60000;
+    time_message = parseInt(time);
+    time = parseInt(time) * 60000;
 }
 
-// Mensaje anunciando que comenzó el conteo
-notifier.notify({
-	title: 'Counting... ', 
-	message: '(' + time_message + ' ' + unit + ')',
-	icon: path.join(__dirname, 'img/pava-calentando.png'),
-	wait: false
-});
+// Define notification announcing that the counter started
+var start_timer = {
+    title: 'Counting...',
+    message: '(' + time_message + ' ' + unit + ')',
+    icon: path.join(__dirname, icon_start),
+    wait: false
+}
 
-// Mensaje anunciando que terminó el conteo
-let timer = setTimeout(function(){
-	notifier.notify({
-		title: 'Done!',
-		message: message,
-		icon: path.join(__dirname, 'img/pava-hirviendo.png'),
-		sound: true,
-		wait: false
-	}) 
+// Define notification announcing that the counter ended
+var end_timer = {
+	title: 'Done!',
+	message: message,
+	icon: path.join(__dirname, icon_end),
+	sound: true,
+	wait: false
+}
+
+// Show bubble notification (start)
+notifier.notify(start_timer);
+
+// Show console notification (start), for example, for use in CLI or SSH
+console.log('+-------------------------+');
+console.log(start_timer.title.red.bold);
+console.log(start_timer.message.red);
+console.log('+-------------------------+');
+
+// Start timer
+let timer = setTimeout(function() {
+
+    // Show bubble notification (end)
+    notifier.notify(end_timer);
+
+    // Show console notification (end)
+	console.log('+-------------------------+');
+    console.log(end_timer.title.green.bold);
+    console.log(end_timer.message.green);
+	console.log('+-------------------------+');
+
 }, time);
